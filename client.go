@@ -20,19 +20,25 @@ func NewRoadieClient(baseUrl string, client *http.Client) *RoadieClient {
 	return &RoadieClient{baseUrl: baseUrl, client: client}
 }
 
-// CreateEstimate
-// https://docs.roadie.com/#create-an-estimate
-func (c *RoadieClient) CreateEstimate(request CreateEstimateRequest) (*Estimate, error) {
-	// Prep request body
+func (c *RoadieClient) prepareBody(request interface{}) (*bytes.Buffer, error) {
 	encoded, err := json.Marshal(request)
 	if err != nil {
 		return nil, err
 	}
 
-	body := bytes.NewBuffer(encoded)
+	return bytes.NewBuffer(encoded), nil
+}
+
+// CreateEstimate
+// https://docs.roadie.com/#create-an-estimate
+func (c *RoadieClient) CreateEstimate(request CreateEstimateRequest) (*Estimate, error) {
+	body, err := c.prepareBody(request)
+	if err != nil {
+		return nil, err
+	}
 
 	// Perform request
-	response, err := http.Post(c.baseUrl+"/v1/estimates", "application/json", body)
+	response, err := c.client.Post(c.baseUrl+"/v1/estimates", "application/json", body)
 	if err != nil {
 		return nil, err
 	}

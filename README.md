@@ -21,6 +21,7 @@ This project serves as a wrapper around [Roadie's API](https://docs.roadie.com).
 - Ability to retrieve artifacts (signature image, pickup image, delivery image, barcode label)
 - Custom error handlers to inform end users of expected behavior (rate limiting)
 - In-depth testing (invalid body, missing authentication, unexpected responses)
+- Release first version
 
 ### API
 
