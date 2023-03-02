@@ -1,6 +1,24 @@
 package main
 
-import "net/http"
+import (
+	"encoding/base64"
+	"net/http"
+)
+
+// AuthBasicTransport supports basic authentication using the authorization header
+// https://docs.roadie.com/#authentication-methods
+type AuthBasicTransport struct {
+	Username string
+	Password string `json:"-"`
+}
+
+func (t *AuthBasicTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	auth := t.Username + ":" + t.Password
+	encoded := base64.StdEncoding.EncodeToString([]byte(auth))
+	
+	req.Header.Add("Authorization", "Bearer "+encoded)
+	return http.DefaultTransport.RoundTrip(req)
+}
 
 // AuthAPIKeyTransport supports bearer tokens using the authorization header
 // https://docs.roadie.com/#authentication-methods
