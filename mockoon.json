@@ -1,0 +1,91 @@
+{
+  "uuid": "e7c09499-0517-42f1-b96e-5921affe3df1",
+  "lastMigration": 27,
+  "name": "Demo API",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 9080,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "07e507be-3da9-4ee5-8ef2-13930d98bbb2",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "v1/estimates",
+      "responses": [
+        {
+          "uuid": "a27915c7-12b7-4351-acf7-ccea505ea9c3",
+          "body": "{\n  \"price\": 12,\n  \"size\": \"large\",\n  \"estimated_distance\": 12.54\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "",
+              "value": ""
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "07e507be-3da9-4ee5-8ef2-13930d98bbb2"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "7311d189-3e3b-4c73-b45f-29d567cd5064",
+      "id": "m2ar",
+      "name": "Users",
+      "documentation": "",
+      "value": "[\n  {{#repeat 50}}\n  {\n    \"id\": \"{{faker 'datatype.uuid'}}\",\n    \"username\": \"{{faker 'internet.userName'}}\"\n  }\n  {{/repeat}}\n]"
+    }
+  ]
+}

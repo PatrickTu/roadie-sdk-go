@@ -4,8 +4,8 @@
 This project serves as a wrapper around [Roadie's API](https://docs.roadie.com). The client supports `/v1/*` endpoints.
 
 ### Benefits
-- Maintain compatibility with clients as the specification evolves over time
-- End users don't have to worry about the underlying implementation
+- Maintain compatibility with clients as the specification evolves over time.
+- Simplify usage as end users don't have to worry about the underlying implementation.
 ## Features
 - Supports all authentication methods listed at https://docs.roadie.com/#authentication-methods
 - Retrieving an Estimate
@@ -20,6 +20,7 @@ This project serves as a wrapper around [Roadie's API](https://docs.roadie.com).
 - Barcode scanning
 - Ability to retrieve artifacts (signature image, pickup image, delivery image, barcode label)
 - Custom error handlers to inform end users of expected behavior (rate limiting)
+- In-depth testing (invalid body, missing authentication, unexpected responses)
 
 ### API
 

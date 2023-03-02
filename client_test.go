@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// Configured to work with Mockoon Mock API
 func GetTestRoadieClient() *RoadieClient {
 	return NewRoadieClient("http://localhost:9080", &http.Client{Transport: NewAuthAPIKeyTransport("key")})
 }
