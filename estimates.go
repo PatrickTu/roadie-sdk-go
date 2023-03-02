@@ -3,7 +3,7 @@ package main
 import "time"
 
 type EstimateService interface {
-	CreateEstimate(CreateEstimateRequest) (*Estimate, error)
+	CreateEstimate(CreateEstimateRequest) (Estimate, error)
 }
 
 type CreateEstimateRequest struct {
