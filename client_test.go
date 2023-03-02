@@ -6,7 +6,7 @@ import (
 )
 
 func GetTestRoadieClient() *RoadieClient {
-	return NewRoadieClient("http://localhost:9080", &http.Client{Transport: &AuthAPIKeyTransport{APIKey: "key"}})
+	return NewRoadieClient("http://localhost:9080", &http.Client{Transport: NewAuthAPIKeyTransport("key")})
 }
 
 func TestRoadieClient_CreateEstimate(t *testing.T) {
