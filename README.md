@@ -50,16 +50,16 @@ This project serves as a wrapper around [Roadie's API](https://docs.roadie.com).
 
 *Assuming the package has been published*
 
-``` go get roadie.com/gopkg/roadie-sdk-go```
+```go get roadie.com/gopkg/roadie-sdk-go```
 
 ### Setting up the client
 
 #### Provide authentication method to access API
 
-API Key
+ Basic Auth
 
 ```go
-authTransport := NewAuthAPIKeyTransport("key")
+authTransport := NewAuthBasicTransport("username", "password")
 ```
 
 Bearer Token
@@ -68,11 +68,12 @@ Bearer Token
 authTransport := NewAuthBearerTokenTransport("token")
 ```
 
- Basic Auth
+API Key
 
 ```go
-authTransport := NewAuthBasicTransport("username", "password")
+authTransport := NewAuthAPIKeyTransport("key")
 ```
+
 
 #### Instantiate Client
 
