@@ -25,23 +25,92 @@ This project serves as a wrapper around [Roadie's API](https://docs.roadie.com).
 
 ### API
 
- - Add `Event` as part of the existing data types. Clicking hyperlinks with the following url does not lead to the definition. https://docs.roadie.com/#event
+1. Add `Event` as part of the existing data types. Clicking hyperlinks with the following url does not lead to the definition. https://docs.roadie.com/#event
+   
+2. Discrepancies in the sample [response](https://docs.roadie.com/#retrieve-a-list-of-shipments) when retrieving multiple shipments
+
+    `alternate_id_1` and `alternate_id_2` are marshalled as a string and number
+
+    #### String
+    ```json
+        "alternate_id_1": "111",
+        "alternate_id_2": "222",
+    ```
+
+    #### Number
+    ```json
+        "alternate_id_1": 333,
+        "alternate_id_2": 444,
+    ```
 
 
 ## Usage
 
 ### Installing package
 
-*Assuming the package has been published internally*
+*Assuming the package has been published*
 
 ``` go get roadie.com/gopkg/roadie-sdk-go```
 
 ### Setting up the client
 
-Authentication
+#### Provide authentication method to access API
+
+API Key
+
+```go
+authTransport := NewAuthAPIKeyTransport("key")
+```
+
+Bearer Token
+
+```go
+authTransport := NewAuthBearerTokenTransport("token")
+```
+
+ Basic Auth
+
+```go
+authTransport := NewAuthBasicTransport("username", "password")
+```
+
+#### Instantiate Client
+
+Pass in the root url to the API and a `*http.Client` with the auth transport.
+
+```go 
+client := NewRoadieClient("url", &http.Client{Transport: authTransport})
+```
 
 ### Available Methods
 
+You can call the following methods directly from the `RoadieClient`
+
+#### Estimate
+
+```go
+type EstimateService interface {
+	CreateEstimate(CreateEstimateRequest) (Estimate, error)
+}
+```
+
+#### Shipment
+
+```go
+type ShipmentService interface {
+	CreateShipment(CreateShipmentRequest) (Shipment, error)
+	RetrieveShipment(id int) (Shipment, error)
+	RetrieveShipments(ids []int, referenceIds []string) ([]Shipment, error)
+	UpdateShipment(id int, request UpdateShipmentRequest) (Shipment, error)
+	CancelShipment(id int, request CancelShipmentRequest) error
+}
+```
+
 ### Testing
 
-To run test suite, ensure you have [Mockoon](https://mockoon.com/) installed.
+To run the integration tests, ensure you have [Mockoon](https://mockoon.com/) installed. The responses are based on the examples given on the documentation.
+
+1. Open Mockoon
+2. Import `mockoon.json`
+3. Start the mock server
+4. Run tests

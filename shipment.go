@@ -7,7 +7,7 @@ type ShipmentService interface {
 	RetrieveShipment(id int) (Shipment, error)
 	RetrieveShipments(ids []int, referenceIds []string) ([]Shipment, error)
 	UpdateShipment(id int, request UpdateShipmentRequest) (Shipment, error)
-	CancelShipment(id int, request CancelShipmentRequest) error // 200 or 204 for no content
+	CancelShipment(id int, request CancelShipmentRequest) error
 }
 
 type Shipment struct {
