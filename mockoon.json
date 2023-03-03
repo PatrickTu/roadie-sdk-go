@@ -40,12 +40,177 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "a3607da9-03ec-4e62-9a5f-d6a2fe5124bc",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "v1/shipments",
+      "responses": [
+        {
+          "uuid": "29885a66-5795-4cf7-9e75-6acc00d432cb",
+          "body": "{\n  \"id\": 152040,\n  \"reference_id\": \"ABCDEFG12345\",\n  \"description\": \"General shipment description.\",\n  \"state\": \"scheduled\",\n  \"alternate_id_1\": \"111\",\n  \"alternate_id_2\": \"222\",\n  \"items\": [\n    {\n      \"description\": \"Item description\",\n      \"reference_id\": null,\n      \"length\": 1,\n      \"width\": 1,\n      \"height\": 1,\n      \"weight\": 1,\n      \"value\": 20,\n      \"quantity\": 1\n    }\n  ],\n  \"pickup_location\": {\n    \"address\": {\n      \"name\": \"Origin Location\",\n      \"store_number\": \"12324\",\n      \"street1\": \"123 Main Street\",\n      \"street2\": null,\n      \"city\": \"Atlanta\",\n      \"state\": \"GA\",\n      \"zip\": \"30305\",\n      \"latitude\": 33.74903,\n      \"longitude\": -85.38803\n    },\n    \"contact\": {\n      \"name\": \"Origin Contact\",\n      \"phone\": \"4049999999\"\n    },\n    \"notes\": null\n  },\n  \"delivery_location\": {\n    \"address\": {\n      \"name\": \"Destination Location\",\n      \"store_number\": null,\n      \"street1\": \"456 Central Ave.\",\n      \"street2\": null,\n      \"city\": \"Atlanta\",\n      \"state\": \"GA\",\n      \"zip\": \"30308\",\n      \"latitude\": 33.04131,\n      \"longitude\": -84.18303\n    },\n    \"contact\": {\n      \"name\": \"Destination Contact\",\n      \"phone\": \"4049999999\"\n    },\n    \"notes\": null\n  },\n  \"pickup_after\": \"2017-12-26T06:00:00.000Z\",\n  \"deliver_between\": {\n    \"start\": \"2017-12-26T06:00:00.000Z\",\n    \"end\": \"2017-12-26T20:00:00.000Z\"\n  },\n  \"options\": {\n    \"signature_required\": true,\n    \"notifications_enabled\": false,\n    \"over_21_required\": false,\n    \"extra_compensation\": 5,\n    \"trailer_required\": false,\n    \"decline_insurance\": true\n  },\n  \"tracking_number\": \"RETHNKW354W3H438\",\n  \"price\": 12,\n  \"estimated_distance\": 3.456,\n  \"events\": [\n    {\n      \"name\": \"at_delivery\",\n      \"occurred_at\": \"2017-12-25T10:38:43.467Z\",\n      \"location\": {\n        \"latitude\": 36.123456,\n        \"longitude\": -82.345678\n      }\n    },\n    {\n      \"name\": \"delivery_confirmed\",\n      \"occurred_at\": \"2017-12-25T12:23:54.325Z\",\n      \"location\": {\n        \"latitude\": 36.123456,\n        \"longitude\": -82.345678\n      }\n    }\n  ],\n  \"created_at\": \"2017-12-25T06:00:00.000Z\",\n  \"updated_at\": \"2017-12-25T06:00:00.000Z\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "",
+              "value": ""
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "60d2d0d3-065b-4a09-ba28-2469bc6ef915",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/shipments/152040",
+      "responses": [
+        {
+          "uuid": "8e5f73d6-2e19-4c7c-a139-7fbc2de298cb",
+          "body": "{\n  \"id\" : 152040,\n  \"reference_id\" : \"ABCDEFG12345\",\n  \"description\" : \"General shipment description.\",\n  \"state\" : \"delivered\",\n  \"alternate_id_1\": \"111\",\n  \"alternate_id_2\": \"222\",\n  \"items\" : [\n    {\n      \"description\" : \"Item description\",\n      \"reference_id\" : null,\n      \"length\" : 1.0,\n      \"width\" : 1.0,\n      \"height\" : 1.0,\n      \"weight\" : 1.0,\n      \"value\" : 20.00,\n      \"quantity\" : 1\n    }\n  ],\n  \"pickup_location\" : {\n    \"address\" : {\n      \"name\" : \"Origin Location\",\n      \"store_number\" : \"12324\",\n      \"street1\" : \"123 Main Street\",\n      \"street2\" : null,\n      \"city\" : \"Atlanta\",\n      \"state\" : \"GA\",\n      \"zip\" : \"30305\",\n      \"latitude\": 33.74903,\n      \"longitude\": -85.38803\n    },\n    \"contact\" : {\n      \"name\" : \"Origin Contact\",\n      \"phone\" : \"4049999999\"\n    },\n    \"notes\" : null\n  },\n  \"delivery_location\" : {\n    \"address\" : {\n      \"name\" : \"Destination Location\",\n      \"store_number\" : null,\n      \"street1\" : \"456 Central Ave.\",\n      \"street2\" : null,\n      \"city\" : \"Atlanta\",\n      \"state\" : \"GA\",\n      \"zip\" : \"30308\",\n      \"latitude\": 33.04131,\n      \"longitude\": -84.18303\n    },\n    \"contact\" : {\n      \"name\" : \"Destination Contact\",\n      \"phone\" : \"4049999999\"\n    },\n    \"notes\" : null\n  },\n  \"pickup_after\" : \"2017-12-26T06:00:00.000Z\",\n  \"deliver_between\" : {\n    \"start\" : \"2017-12-26T06:00:00.000Z\",\n    \"end\" : \"2017-12-26T20:00:00.000Z\"\n  },\n  \"options\" : {\n    \"signature_required\" : true,\n    \"notifications_enabled\" : true,\n    \"over_21_required\" : true,\n    \"extra_compensation\" : 5.0,\n    \"trailer_required\": false\n  },\n  \"tracking_number\" : \"RETHNKW354W3H438\",\n  \"signatory_name\" : \"Jane Doe\",\n  \"price\" : 12.00,\n  \"estimated_distance\": 3.456,\n  \"events\": [\n    {\n      \"name\": \"at_delivery\",\n      \"occurred_at\": \"2017-12-25T10:38:43.467Z\",\n      \"location\": {\n        \"latitude\": 36.123456,\n        \"longitude\": -82.345678\n      }\n    },\n    {\n      \"name\": \"delivery_confirmed\",\n      \"occurred_at\": \"2017-12-25T12:23:54.325Z\",\n      \"location\": {\n        \"latitude\": 36.123456,\n        \"longitude\": -82.345678\n      }\n    }\n  ],\n  \"created_at\" : \"2017-12-25T06:00:00.000Z\",\n  \"updated_at\" : \"2017-12-25T06:00:00.000Z\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "ba9c31e9-b91a-4e6d-9111-349584b8e58e",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/shipments",
+      "responses": [
+        {
+          "uuid": "283d8b42-20cc-459d-ad46-f4de2459d6e4",
+          "body": "[\r\n  {\r\n    \"id\" : 45245234,\r\n    \"reference_id\" : \"ABC123\",\r\n    \"description\" : \"General shipment description.\",\r\n    \"state\" : \"assigned\",\r\n    \"alternate_id_1\": \"111\",\r\n    \"alternate_id_2\": \"222\",\r\n    \"items\" : [\r\n      {\r\n        \"description\" : \"Item description\",\r\n        \"reference_id\" : null,\r\n        \"length\" : 1.0,\r\n        \"width\" : 1.0,\r\n        \"height\" : 1.0,\r\n        \"weight\" : 1.0,\r\n        \"value\" : 20.00,\r\n        \"quantity\" : 1\r\n      }\r\n    ],\r\n    \"pickup_location\" : {\r\n      \"address\" : {\r\n        \"name\" : \"Origin Location\",\r\n        \"store_number\" : \"12324\",\r\n        \"street1\" : \"123 Main Street\",\r\n        \"street2\" : null,\r\n        \"city\" : \"Atlanta\",\r\n        \"state\" : \"GA\",\r\n        \"zip\" : \"30305\",\r\n        \"latitude\": 33.74903,\r\n        \"longitude\": -85.38803\r\n      },\r\n      \"contact\" : {\r\n        \"name\" : \"Origin Contact\",\r\n        \"phone\" : \"4049999999\"\r\n      },\r\n      \"notes\" : null\r\n    },\r\n    \"delivery_location\" : {\r\n      \"address\" : {\r\n        \"name\" : \"Destination Location\",\r\n        \"store_number\" : null,\r\n        \"street1\" : \"456 Central Ave.\",\r\n        \"street2\" : null,\r\n        \"city\" : \"Atlanta\",\r\n        \"state\" : \"GA\",\r\n        \"zip\" : \"30308\",\r\n        \"latitude\": 33.04131,\r\n        \"longitude\": -84.18303\r\n      },\r\n      \"contact\" : {\r\n        \"name\" : \"Destination Contact\",\r\n        \"phone\" : \"4049999999\"\r\n      },\r\n      \"notes\" : null\r\n    },\r\n    \"pickup_after\" : \"2017-12-26T06:00:00.000Z\",\r\n    \"deliver_between\" : {\r\n      \"start\" : \"2017-12-26T06:00:00.000Z\",\r\n      \"end\" : \"2017-12-26T20:00:00.000Z\"\r\n    },\r\n    \"options\" : {\r\n      \"signature_required\" : true,\r\n      \"notifications_enabled\" : false,\r\n      \"over_21_required\" : false\r\n    },\r\n    \"tracking_number\" : \"RETHNKW354W3H438\",\r\n    \"driver\" : {\r\n      \"name\" : \"Jeff B.\",\r\n      \"phone\" : \"7709999999\"\r\n    },\r\n    \"price\" : 12.00,\r\n    \"estimated_distance\": 3.456,\r\n    \"events\": [\r\n      {\r\n        \"name\": \"at_delivery\",\r\n        \"occurred_at\": \"2017-12-25T10:38:43.467Z\",\r\n        \"location\": {\r\n          \"latitude\": 36.123456,\r\n          \"longitude\": -82.345678\r\n        }\r\n      },\r\n      {\r\n        \"name\": \"delivery_confirmed\",\r\n        \"occurred_at\": \"2017-12-25T12:23:54.325Z\",\r\n        \"location\": {\r\n          \"latitude\": 36.123456,\r\n          \"longitude\": -82.345678\r\n        }\r\n      }\r\n    ],\r\n    \"created_at\" : \"2017-12-25T06:00:00.000Z\",\r\n    \"updated_at\" : \"2017-12-25T06:00:00.000Z\"\r\n  },\r\n  {\r\n    \"id\" : 152040,\r\n    \"reference_id\" : \"ABC456\",\r\n    \"description\" : \"General shipment description.\",\r\n    \"state\" : \"delivered\",\r\n    \"alternate_id_1\": \"333\",\r\n    \"alternate_id_2\": \"444\",\r\n    \"items\" : [\r\n      {\r\n        \"description\" : \"Item description\",\r\n        \"reference_id\" : null,\r\n        \"length\" : 1.0,\r\n        \"width\" : 1.0,\r\n        \"height\" : 1.0,\r\n        \"weight\" : 1.0,\r\n        \"value\" : 20.00,\r\n        \"quantity\" : 1\r\n      }\r\n    ],\r\n    \"pickup_location\" : {\r\n      \"address\" : {\r\n        \"name\" : \"Origin Location\",\r\n        \"store_number\" : \"12324\",\r\n        \"street1\" : \"123 Main Street\",\r\n        \"street2\" : null,\r\n        \"city\" : \"Atlanta\",\r\n        \"state\" : \"GA\",\r\n        \"zip\" : \"30305\",\r\n        \"latitude\": 33.74903,\r\n        \"longitude\": -85.38803\r\n      },\r\n      \"contact\" : {\r\n        \"name\" : \"Origin Contact\",\r\n        \"phone\" : \"4049999999\"\r\n      },\r\n      \"notes\" : null\r\n    },\r\n    \"delivery_location\" : {\r\n      \"address\" : {\r\n        \"name\" : \"Destination Location\",\r\n        \"store_number\" : null,\r\n        \"street1\" : \"456 Central Ave.\",\r\n        \"street2\" : null,\r\n        \"city\" : \"Atlanta\",\r\n        \"state\" : \"GA\",\r\n        \"zip\" : \"30308\",\r\n        \"latitude\": 33.04131,\r\n        \"longitude\": -84.18303\r\n      },\r\n      \"contact\" : {\r\n        \"name\" : \"Destination Contact\",\r\n        \"phone\" : \"4049999999\"\r\n      },\r\n      \"notes\" : null\r\n    },\r\n    \"pickup_after\" : \"2017-12-26T06:00:00.000Z\",\r\n    \"deliver_between\" : {\r\n      \"start\" : \"2017-12-26T06:00:00.000Z\",\r\n      \"end\" : \"2017-12-26T20:00:00.000Z\"\r\n    },\r\n    \"options\" : {\r\n      \"signature_required\" : true,\r\n      \"notifications_enabled\" : true,\r\n      \"over_21_required\" : true\r\n    },\r\n    \"tracking_number\" : \"RETHNKW354W3H438\",\r\n    \"signatory_name\" : \"Jane Doe\",\r\n    \"price\" : 12.00,\r\n    \"estimated_distance\": 3.456,\r\n    \"events\": [\r\n      {\r\n        \"name\": \"at_delivery\",\r\n        \"occurred_at\": \"2017-12-25T10:38:43.467Z\",\r\n        \"location\": {\r\n          \"latitude\": 36.123456,\r\n          \"longitude\": -82.345678\r\n        }\r\n      },\r\n      {\r\n        \"name\": \"delivery_confirmed\",\r\n        \"occurred_at\": \"2017-12-25T12:23:54.325Z\",\r\n        \"location\": {\r\n          \"latitude\": 36.123456,\r\n          \"longitude\": -82.345678\r\n        }\r\n      }\r\n    ],\r\n    \"created_at\" : \"2017-12-25T06:00:00.000Z\",\r\n    \"updated_at\" : \"2017-12-25T06:00:00.000Z\"\r\n  }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "aa8735b5-9188-4a75-9ca9-9713a1e5f1bb",
+      "type": "http",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "v1/shipments/152040",
+      "responses": [
+        {
+          "uuid": "26a97300-c7b6-4e27-8e29-fad49358f17d",
+          "body": "{\r\n  \"id\" : 152040,\r\n  \"reference_id\" : \"ABCDEFG12345\",\r\n  \"description\" : \"General shipment description.\",\r\n  \"state\" : \"scheduled\",\r\n  \"alternate_id_1\": \"111\",\r\n  \"alternate_id_2\": \"222\",\r\n  \"items\" : [\r\n    {\r\n      \"description\" : \"Item description\",\r\n      \"reference_id\" : null,\r\n      \"length\" : 1.0,\r\n      \"width\" : 1.0,\r\n      \"height\" : 1.0,\r\n      \"weight\" : 1.0,\r\n      \"value\" : 20.00,\r\n      \"quantity\" : 1\r\n    }\r\n  ],\r\n  \"pickup_location\" : {\r\n    \"address\" : {\r\n      \"name\" : \"Origin Location\",\r\n      \"store_number\" : \"12324\",\r\n      \"street1\" : \"123 Main Street\",\r\n      \"street2\" : null,\r\n      \"city\" : \"Atlanta\",\r\n      \"state\" : \"GA\",\r\n      \"zip\" : \"30305\",\r\n      \"latitude\": 33.74903,\r\n      \"longitude\": -85.38803\r\n    },\r\n    \"contact\" : {\r\n      \"name\" : \"Origin Contact\",\r\n      \"phone\" : \"4049999999\"\r\n    },\r\n    \"notes\" : null\r\n  },\r\n  \"delivery_location\" : {\r\n    \"address\" : {\r\n      \"name\" : \"Destination Location\",\r\n      \"store_number\" : null,\r\n      \"street1\" : \"456 Central Ave.\",\r\n      \"street2\" : null,\r\n      \"city\" : \"Atlanta\",\r\n      \"state\" : \"GA\",\r\n      \"zip\" : \"30308\",\r\n      \"latitude\": 33.04131,\r\n      \"longitude\": -84.18303\r\n    },\r\n    \"contact\" : {\r\n      \"name\" : \"Destination Contact\",\r\n      \"phone\" : \"4049999999\"\r\n    },\r\n    \"notes\" : null\r\n  },\r\n  \"pickup_after\" : \"2017-12-26T06:00:00.000Z\",\r\n  \"deliver_between\" : {\r\n    \"start\" : \"2017-12-26T06:00:00.000Z\",\r\n    \"end\" : \"2017-12-26T20:00:00.000Z\"\r\n  },\r\n  \"options\" : {\r\n    \"signature_required\" : true,\r\n    \"notifications_enabled\" : true,\r\n    \"over_21_required\" : true,\r\n    \"extra_compensation\" : 5.0,\r\n    \"trailer_required\": false\r\n  },\r\n  \"tracking_number\" : \"RETHNKW354W3H438\",\r\n  \"price\" : 12.00,\r\n  \"estimated_distance\": 3.456,\r\n  \"events\": [\r\n    {\r\n      \"name\": \"at_delivery\",\r\n      \"occurred_at\": \"2017-12-25T10:38:43.467Z\",\r\n      \"location\": {\r\n        \"latitude\": 36.123456,\r\n        \"longitude\": -82.345678\r\n      }\r\n    },\r\n    {\r\n      \"name\": \"delivery_confirmed\",\r\n      \"occurred_at\": \"2017-12-25T12:23:54.325Z\",\r\n      \"location\": {\r\n        \"latitude\": 36.123456,\r\n        \"longitude\": -82.345678\r\n      }\r\n    }\r\n  ],\r\n  \"created_at\" : \"2017-12-25T06:00:00.000Z\",\r\n  \"updated_at\" : \"2017-12-25T06:00:00.000Z\"\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "98eacfff-de8e-4da6-b172-44e435bea6be",
+      "type": "http",
+      "documentation": "",
+      "method": "delete",
+      "endpoint": "v1/shipments/152040",
+      "responses": [
+        {
+          "uuid": "611f9acf-10dc-4a4f-9b97-ac1bb1228861",
+          "body": "",
+          "latency": 0,
+          "statusCode": 204,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "rootChildren": [
     {
       "type": "route",
       "uuid": "07e507be-3da9-4ee5-8ef2-13930d98bbb2"
+    },
+    {
+      "type": "route",
+      "uuid": "a3607da9-03ec-4e62-9a5f-d6a2fe5124bc"
+    },
+    {
+      "type": "route",
+      "uuid": "60d2d0d3-065b-4a09-ba28-2469bc6ef915"
+    },
+    {
+      "type": "route",
+      "uuid": "ba9c31e9-b91a-4e6d-9111-349584b8e58e"
+    },
+    {
+      "type": "route",
+      "uuid": "aa8735b5-9188-4a75-9ca9-9713a1e5f1bb"
+    },
+    {
+      "type": "route",
+      "uuid": "98eacfff-de8e-4da6-b172-44e435bea6be"
     }
   ],
   "proxyMode": false,

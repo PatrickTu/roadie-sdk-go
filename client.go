@@ -139,8 +139,15 @@ func (c *RoadieClient) RetrieveShipments(ids []int, referenceIds []string) ([]Sh
 
 	// Add query parameters
 	q := req.URL.Query()
-	q.Add("ids", arrayToString(ids, ","))
-	q.Add("reference_ids", strings.Join(referenceIds[:], ","))
+
+	if len(ids) > 0 {
+		q.Add("ids", arrayToString(ids, ","))
+
+	}
+	if len(referenceIds) > 0 {
+		q.Add("reference_ids", strings.Join(referenceIds[:], ","))
+	}
+
 	req.URL.RawQuery = q.Encode()
 
 	// Perform request
@@ -171,7 +178,7 @@ func (c *RoadieClient) UpdateShipment(id int, request UpdateShipmentRequest) (Sh
 		return Shipment{}, err
 	}
 
-	req, err := c.prepareRequest("PATCH", fmt.Sprintf("%s/v1/shipment/%d", c.baseUrl, id), body)
+	req, err := c.prepareRequest("PATCH", fmt.Sprintf("%s/v1/shipments/%d", c.baseUrl, id), body)
 	if err != nil {
 		return Shipment{}, err
 	}
@@ -203,7 +210,7 @@ func (c *RoadieClient) CancelShipment(id int, request CancelShipmentRequest) err
 		return err
 	}
 
-	req, err := c.prepareRequest("DELETE", fmt.Sprintf("%s/v1/shipment/%d", c.baseUrl, id), body)
+	req, err := c.prepareRequest("DELETE", fmt.Sprintf("%s/v1/shipments/%d", c.baseUrl, id), body)
 	if err != nil {
 		return err
 	}
